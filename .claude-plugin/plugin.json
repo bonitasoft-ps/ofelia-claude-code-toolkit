@@ -1,0 +1,25 @@
+{
+  "name": "bonita-ai-agent",
+  "description": "Bonita PS toolkit for Claude Code: 61 expert skills (BDM, BPMN, REST API, audit, debugging, connectors, upgrade), 5 agents, 4 commands and hooks. Works offline. Optionally connects to the bonita-ai-agent MCP server for advanced tooling (docs RAG search, full audits, code generation).",
+  "version": "1.0.0",
+  "author": {
+    "name": "Bonitasoft Professional Services",
+    "url": "https://github.com/bonitasoft-ps"
+  },
+  "homepage": "https://github.com/bonitasoft-ps/claude-code-toolkit",
+  "repository": "https://github.com/bonitasoft-ps/claude-code-toolkit",
+  "license": "MIT",
+  "keywords": [
+    "bonita",
+    "bonitasoft",
+    "professional-services",
+    "bpm",
+    "process-automation",
+    "audit",
+    "upgrade",
+    "connectors",
+    "bdm",
+    "rest-api",
+    "compound-engineering"
+  ]
+}

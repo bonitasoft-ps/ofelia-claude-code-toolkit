@@ -1,0 +1,32 @@
+{
+  "name": "bonitasoft-ps",
+  "owner": {
+    "name": "Bonitasoft Professional Services",
+    "url": "https://github.com/bonitasoft-ps"
+  },
+  "metadata": {
+    "description": "Private Claude Code plugin marketplace for Bonitasoft Professional Services. Skills, agents, and commands for Bonita BPM consulting (audits, upgrades, connectors, testing, BDM/BPMN/REST API design).",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "bonita-ai-agent",
+      "description": "Bonita PS expert skills for Claude Code: BDM/BPMN design, audits, upgrades, connectors, testing, debugging, multi-agent review. Compound-engineering-style workflows adapted for Bonita.",
+      "author": {
+        "name": "Bonitasoft Professional Services"
+      },
+      "homepage": "https://github.com/bonitasoft-ps/claude-code-toolkit",
+      "tags": [
+        "bonita",
+        "bpm",
+        "audit",
+        "upgrade",
+        "connectors",
+        "bdm",
+        "professional-services",
+        "compound-engineering"
+      ],
+      "source": "."
+    }
+  ]
+}
