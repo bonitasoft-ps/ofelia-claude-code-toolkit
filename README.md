@@ -21,6 +21,7 @@ git clone https://github.com/bonitasoft-ps/claude-code-toolkit.git
 
 ## Table of Contents
 
+- [Install as a Claude Code Plugin (bonita-ai-agent)](#install-as-a-claude-code-plugin-bonita-ai-agent)
 - [What is this?](#what-is-this)
 - [The 3 Scopes + Priority System](#the-3-scopes--priority-system)
   - [Enterprise Scope](#-enterprise-scope--priority-1)
@@ -78,6 +79,110 @@ You can also use the automated installer:
 ```bash
 bash install.sh
 ```
+
+---
+
+## Install as a Claude Code Plugin (`bonita-ai-agent`)
+
+This repository also distributes **`bonita-ai-agent`**, a Claude Code plugin that bundles the Bonita expert skills, agents and slash commands listed above. If you just want the AI assistance — without the methodology files, hooks templates, configs and project scaffolds — install the plugin. No clone, no scripts.
+
+> **Where to run the commands below:** inside the **Claude Code prompt** (the chat with Claude), not in your terminal. The same `/plugin` commands work on every Claude Code surface:
+>
+> - **CLI** (`claude` in your terminal)
+> - **Desktop app** (Mac / Windows)
+> - **IDE extensions** (VS Code, JetBrains)
+> - **claude.ai/code** (web) when paired with a local Claude Code install
+>
+> All four share the same `~/.claude/` config on your machine, so you install once and it's available everywhere.
+
+### Three install options
+
+#### Option A — Auto-install via `settings.json` (recommended for the team)
+
+Add the following to `~/.claude/settings.json` (Windows: `%USERPROFILE%\.claude\settings.json`):
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "bonitasoft-ps": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/bonitasoft-ps/claude-code-toolkit.git"
+      },
+      "autoUpdate": true
+    }
+  },
+  "enabledPlugins": {
+    "bonita-ai-agent@bonitasoft-ps": true
+  }
+}
+```
+
+Restart Claude Code and accept the **Trust marketplace** prompt that appears. The plugin installs automatically; `"autoUpdate": true` keeps it on the latest commit from `master`.
+
+#### Option B — Interactive UI
+
+In any Claude Code session, type `/plugin`. Tab to **Marketplaces** → **Add new marketplace** → paste `https://github.com/bonitasoft-ps/claude-code-toolkit.git` → accept trust prompt. Then tab to **Discover** → select `bonita-ai-agent` → press Enter → Install.
+
+#### Option C — Slash commands (one at a time)
+
+```
+/plugin marketplace add https://github.com/bonitasoft-ps/claude-code-toolkit.git
+```
+
+Wait for "Marketplace added", then:
+
+```
+/reload-plugins
+```
+
+Wait, then:
+
+```
+/plugin install bonita-ai-agent@bonitasoft-ps
+```
+
+Each line is a **separate message**. Pasting them all at once makes Claude Code treat the concatenation as one argument and fail.
+
+> **Use the full HTTPS URL ending in `.git`** — the shorthand `bonitasoft-ps/claude-code-toolkit` defaults to an SSH clone (`git@github.com:...`) which fails on most machines because there is no SSH key configured for GitHub. HTTPS uses the credential helper set up by `gh auth setup-git`.
+
+### Verify the install
+
+```
+/plugin
+```
+
+Tab to **Installed** — `bonita-ai-agent@bonitasoft-ps` should appear with all its skills, agents and the MCP server.
+
+### Update the plugin
+
+If you used Option A with `"autoUpdate": true`, updates happen automatically when Claude Code starts.
+
+Manual update on demand:
+
+```
+/plugin marketplace update bonitasoft-ps
+```
+
+Then:
+
+```
+/reload-plugins
+```
+
+Each on its own message.
+
+To pin to a specific branch or tag, set a `ref` on the marketplace source in `settings.json`:
+
+```json
+"source": {
+  "source": "git",
+  "url": "https://github.com/bonitasoft-ps/claude-code-toolkit.git",
+  "ref": "v1.2.0"
+}
+```
+
+Any branch, tag or commit SHA works as `ref`.
 
 ---
 
