@@ -15,4 +15,4 @@ Then ask Claude to generate the document in plain language — Claude will pick 
 
 ## Why this skill is just a redirect
 
-Branding lives in `ofelia-document-toolkit` so the palette, logos and fonts have one canonical source. This repo (`bonita-ai-agent`) stays focused on Bonita expertise: skills, agents, commands and hooks for Bonita BPM development, audits and upgrades.
+Branding lives in `ofelia-document-toolkit` so the palette, logos and fonts have one canonical source. This repo (`ofelia-claude-code-toolkit`) stays focused on Bonita expertise: skills, agents, commands and hooks for Bonita BPM development, audits and upgrades.

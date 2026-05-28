@@ -1,17 +1,17 @@
 {
-  "name": "bonitasoft-ps",
+  "name": "ofelia-claude-code-toolkit",
   "owner": {
     "name": "Bonitasoft Professional Services",
     "url": "https://github.com/bonitasoft-ps"
   },
   "metadata": {
-    "description": "Private Claude Code plugin marketplace for Bonitasoft Professional Services. Skills, agents, and commands for Bonita BPM consulting (audits, upgrades, connectors, testing, BDM/BPMN/REST API design).",
-    "version": "1.0.0"
+    "description": "Ofelia Claude Code Toolkit — Claude Code plugin marketplace for Bonitasoft / Ofelia Professional Services. Skills, agents, and commands for Bonita BPM consulting (audits, upgrades, connectors, testing, BDM/BPMN/REST API design).",
+    "version": "2.0.0"
   },
   "plugins": [
     {
-      "name": "bonita-ai-agent",
-      "description": "Bonita PS expert skills for Claude Code: BDM/BPMN design, audits, upgrades, connectors, testing, debugging, multi-agent review. Compound-engineering-style workflows adapted for Bonita.",
+      "name": "ofelia-claude-code-toolkit",
+      "description": "Ofelia / Bonita PS expert skills for Claude Code: BDM/BPMN design, audits, upgrades, connectors, testing, debugging, multi-agent review. Compound-engineering-style workflows adapted for Bonita.",
       "author": {
         "name": "Bonitasoft Professional Services"
       },

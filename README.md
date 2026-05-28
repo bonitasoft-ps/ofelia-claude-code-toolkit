@@ -21,7 +21,7 @@ git clone https://github.com/bonitasoft-ps/claude-code-toolkit.git
 
 ## Table of Contents
 
-- [Install as a Claude Code Plugin (bonita-ai-agent)](#install-as-a-claude-code-plugin-bonita-ai-agent)
+- [Install as a Claude Code Plugin (ofelia-claude-code-toolkit)](#install-as-a-claude-code-plugin-ofelia-claude-code-toolkit)
 - [What is this?](#what-is-this)
 - [The 3 Scopes + Priority System](#the-3-scopes--priority-system)
   - [Enterprise Scope](#-enterprise-scope--priority-1)
@@ -82,9 +82,11 @@ bash install.sh
 
 ---
 
-## Install as a Claude Code Plugin (`bonita-ai-agent`)
+## Install as a Claude Code Plugin (`ofelia-claude-code-toolkit`)
 
-This repository also distributes **`bonita-ai-agent`**, a Claude Code plugin that bundles the Bonita expert skills, agents and slash commands listed above. If you just want the AI assistance — without the methodology files, hooks templates, configs and project scaffolds — install the plugin. No clone, no scripts.
+This repository also distributes **`ofelia-claude-code-toolkit`**, a Claude Code plugin that bundles the Bonita expert skills, agents and slash commands listed above. If you just want the AI assistance — without the methodology files, hooks templates, configs and project scaffolds — install the plugin. No clone, no scripts.
+
+> **Renamed in v2.0.** The plugin slug was previously `bonita-ai-agent` and the marketplace was `bonitasoft-ps`. Both were renamed to `ofelia-claude-code-toolkit` to align with the Ofelia rebrand and to avoid confusion with the sibling MCP server repo (`bonita-ai-agent-mcp`, which is a different artifact). If your `~/.claude/settings.json` still has the old names, replace them with the new ones below.
 
 > **Where to run the commands below:** inside the **Claude Code prompt** (the chat with Claude), not in your terminal. The `/plugin` slash commands work on every Claude Code surface that runs locally:
 >
@@ -105,7 +107,7 @@ Add the following to `~/.claude/settings.json` (Windows: `%USERPROFILE%\.claude\
 ```json
 {
   "extraKnownMarketplaces": {
-    "bonitasoft-ps": {
+    "ofelia-claude-code-toolkit": {
       "source": {
         "source": "git",
         "url": "https://github.com/bonitasoft-ps/claude-code-toolkit.git"
@@ -114,7 +116,7 @@ Add the following to `~/.claude/settings.json` (Windows: `%USERPROFILE%\.claude\
     }
   },
   "enabledPlugins": {
-    "bonita-ai-agent@bonitasoft-ps": true
+    "ofelia-claude-code-toolkit@ofelia-claude-code-toolkit": true
   }
 }
 ```
@@ -135,7 +137,7 @@ After this UI confirmation the Desktop app loads the plugin like the CLI does.
 
 #### Option B — Interactive UI
 
-In any Claude Code session, type `/plugin`. Tab to **Marketplaces** → **Add new marketplace** → paste `https://github.com/bonitasoft-ps/claude-code-toolkit.git` → accept trust prompt. Then tab to **Discover** → select `bonita-ai-agent` → press Enter → Install.
+In any Claude Code session, type `/plugin`. Tab to **Marketplaces** → **Add new marketplace** → paste `https://github.com/bonitasoft-ps/claude-code-toolkit.git` → accept trust prompt. Then tab to **Discover** → select `ofelia-claude-code-toolkit` → press Enter → Install.
 
 #### Option C — Slash commands (one at a time)
 
@@ -152,7 +154,7 @@ Wait for "Marketplace added", then:
 Wait, then:
 
 ```
-/plugin install bonita-ai-agent@bonitasoft-ps
+/plugin install ofelia-claude-code-toolkit@ofelia-claude-code-toolkit
 ```
 
 Each line is a **separate message**. Pasting them all at once makes Claude Code treat the concatenation as one argument and fail.
@@ -165,7 +167,7 @@ Each line is a **separate message**. Pasting them all at once makes Claude Code 
 /plugin
 ```
 
-Tab to **Installed** — `bonita-ai-agent@bonitasoft-ps` should appear with all its skills, agents and the MCP server. Tab to **Errors** to see any loading issue (if everything is fine, that tab is empty).
+Tab to **Installed** — `ofelia-claude-code-toolkit@ofelia-claude-code-toolkit` should appear with all its skills, agents and the MCP server. Tab to **Errors** to see any loading issue (if everything is fine, that tab is empty).
 
 You can also confirm from the shell:
 
@@ -177,7 +179,7 @@ This prints every installed plugin with its marketplace and version.
 
 ### After install — quick start
 
-**Skills auto-invoke.** Once the plugin is loaded, the 55 Bonita expert skills become available with the namespace prefix `bonita-ai-agent:` (for example `bonita-ai-agent:bonita-audit-expert`, `bonita-ai-agent:bonita-bdm-expert`). You don't have to call them by name — Claude picks the right one when it detects a relevant task. Just describe what you want:
+**Skills auto-invoke.** Once the plugin is loaded, the 55 Bonita expert skills become available with the namespace prefix `ofelia-claude-code-toolkit:` (for example `ofelia-claude-code-toolkit:bonita-audit-expert`, `ofelia-claude-code-toolkit:bonita-pdf-corporate`). You don't have to call them by name — Claude picks the right one when it detects a relevant task. Just describe what you want:
 
 > *"Audit this Bonita project against the PS audit rules"*
 > *"Plan an upgrade from Bonita 7.5.2 to 2026.1"*
@@ -186,13 +188,13 @@ This prints every installed plugin with its marketplace and version.
 To force a specific skill, prefix the slash command with the namespace:
 
 ```
-/bonita-ai-agent:bonita-audit-expert
+/ofelia-claude-code-toolkit:bonita-audit-expert
 ```
 
 **Agents are also namespaced.** To delegate to a sub-agent:
 
 ```
-delegate to bonita-ai-agent:bonita-code-reviewer: review this controller
+delegate to ofelia-claude-code-toolkit:bonita-code-reviewer: review this controller
 ```
 
 **List everything the plugin provides** at any time:
@@ -201,7 +203,7 @@ delegate to bonita-ai-agent:bonita-code-reviewer: review this controller
 /help
 ```
 
-Skills, agents and commands from the plugin appear under the `bonita-ai-agent` heading.
+Skills, agents and commands from the plugin appear under the `ofelia-claude-code-toolkit` heading.
 
 ### Update the plugin
 
@@ -210,7 +212,7 @@ If you used Option A with `"autoUpdate": true`, updates happen automatically whe
 Manual update on demand:
 
 ```
-/plugin marketplace update bonitasoft-ps
+/plugin marketplace update ofelia-claude-code-toolkit
 ```
 
 Then:
