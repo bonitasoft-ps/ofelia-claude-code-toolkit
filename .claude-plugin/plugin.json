@@ -1,7 +1,7 @@
 {
-  "name": "bonita-ai-agent",
-  "description": "Bonita PS toolkit for Claude Code: 55 expert skills, 5 agents, 18 commands and hooks. Works offline. Optionally connects to the bonita-ai-agent MCP server for advanced tooling (docs RAG search, full audits, code generation).",
-  "version": "1.0.0",
+  "name": "ofelia-claude-code-toolkit",
+  "description": "Ofelia / Bonita PS toolkit for Claude Code: 55 expert skills, 5 agents, 18 commands and hooks. Works offline. Optionally connects to the bonita-ai-agent MCP server (the separate hub repo) for advanced tooling (docs RAG search, full audits, BPMN/BDM/UI generation).",
+  "version": "2.0.0",
   "author": {
     "name": "Bonitasoft Professional Services",
     "url": "https://github.com/bonitasoft-ps"
