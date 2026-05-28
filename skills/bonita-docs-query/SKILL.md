@@ -5,7 +5,7 @@ description: |
   Bonita features, configuration, REST API, BDM, processes, UI, connectors, and administration.
   Supports version-specific queries and cross-version comparisons.
   Trigger: "bonita docs", "how does bonita", "bonita documentation", "search docs", "bonita help", "REST API bonita"
-allowed-tools: Read, Grep, Glob, mcp__Bonita-AI-Agent__search_bonita_docs, mcp__Bonita-AI-Agent__get_bonita_doc_page, mcp__Bonita-AI-Agent__list_doc_versions, mcp__Bonita-AI-Agent__bonita_rest_api_lookup, mcp__Bonita-AI-Agent__bonita_rest_api_schema, mcp__Bonita-AI-Agent__check_doc_updates, mcp__Bonita-AI-Agent__compare_doc_versions
+allowed-tools: Read, Grep, Glob, mcp__Ofelia-AI-Agent__search_bonita_docs, mcp__Ofelia-AI-Agent__get_bonita_doc_page, mcp__Ofelia-AI-Agent__list_doc_versions, mcp__Ofelia-AI-Agent__bonita_rest_api_lookup, mcp__Ofelia-AI-Agent__bonita_rest_api_schema, mcp__Ofelia-AI-Agent__check_doc_updates, mcp__Ofelia-AI-Agent__compare_doc_versions
 user_invocable: true
 ---
 

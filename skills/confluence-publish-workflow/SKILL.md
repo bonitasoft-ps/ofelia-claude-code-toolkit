@@ -8,7 +8,7 @@ description: |
   UI specs, test plans. Manages multiple output destinations and status tracking.
   Trigger: "publish to confluence", "create confluence page", "document first", "publish spec",
   "save document", "generate spec", "document workflow"
-allowed-tools: Read, Grep, Glob, Edit, Write, mcp__claude_ai_Atlassian_2__createConfluencePage, mcp__claude_ai_Atlassian_2__updateConfluencePage, mcp__claude_ai_Atlassian_2__searchConfluenceUsingCql, mcp__claude_ai_Atlassian_2__getConfluencePage, mcp__claude_ai_Atlassian_2__getConfluenceSpaces, mcp__claude_ai_Atlassian_2__getPagesInConfluenceSpace, mcp__Bonita-AI-Agent__build_pdf
+allowed-tools: Read, Grep, Glob, Edit, Write, mcp__claude_ai_Atlassian_2__createConfluencePage, mcp__claude_ai_Atlassian_2__updateConfluencePage, mcp__claude_ai_Atlassian_2__searchConfluenceUsingCql, mcp__claude_ai_Atlassian_2__getConfluencePage, mcp__claude_ai_Atlassian_2__getConfluenceSpaces, mcp__claude_ai_Atlassian_2__getPagesInConfluenceSpace, mcp__Ofelia-AI-Agent__build_pdf
 user_invocable: true
 ---
 

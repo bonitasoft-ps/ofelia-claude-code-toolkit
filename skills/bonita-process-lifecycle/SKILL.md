@@ -5,7 +5,7 @@ description: |
   validate → implement → test with Bonita Test Toolkit → build .bar → deploy → update docs → deliver.
   Covers tasks, gateways, events, variables, connectors, contracts, actors.
   Trigger: "create process", "new process", "bpmn lifecycle", "process lifecycle", "design process flow"
-allowed-tools: Read, Grep, Glob, Edit, Write, Bash, mcp__claude_ai_Atlassian_2__createConfluencePage, mcp__claude_ai_Atlassian_2__updateConfluencePage, mcp__Bonita-AI-Agent__build_pdf, mcp__Bonita-AI-Agent__generate_bpmn, mcp__Bonita-AI-Agent__validate_bpmn, mcp__Bonita-AI-Agent__generate_subprocess, mcp__Bonita-AI-Agent__generate_event_handler
+allowed-tools: Read, Grep, Glob, Edit, Write, Bash, mcp__claude_ai_Atlassian_2__createConfluencePage, mcp__claude_ai_Atlassian_2__updateConfluencePage, mcp__Ofelia-AI-Agent__build_pdf, mcp__Ofelia-AI-Agent__generate_bpmn, mcp__Ofelia-AI-Agent__validate_bpmn, mcp__Ofelia-AI-Agent__generate_subprocess, mcp__Ofelia-AI-Agent__generate_event_handler
 user_invocable: true
 ---
 

@@ -5,7 +5,7 @@ description: |
   validate → implement → test (unit/mutation/E2E) → build → deploy → update docs → deliver.
   For standalone web apps or Bonita Living Applications with React/Tailwind.
   Trigger: "create web app", "react app", "angular app", "living app react", "webapp lifecycle"
-allowed-tools: Read, Grep, Glob, Edit, Write, Bash, mcp__claude_ai_Atlassian_2__createConfluencePage, mcp__claude_ai_Atlassian_2__updateConfluencePage, mcp__Bonita-AI-Agent__build_pdf, mcp__Bonita-AI-Agent__generate_ui_form, mcp__Bonita-AI-Agent__generate_dashboard, mcp__Bonita-AI-Agent__generate_living_app
+allowed-tools: Read, Grep, Glob, Edit, Write, Bash, mcp__claude_ai_Atlassian_2__createConfluencePage, mcp__claude_ai_Atlassian_2__updateConfluencePage, mcp__Ofelia-AI-Agent__build_pdf, mcp__Ofelia-AI-Agent__generate_ui_form, mcp__Ofelia-AI-Agent__generate_dashboard, mcp__Ofelia-AI-Agent__generate_living_app
 user_invocable: true
 ---
 

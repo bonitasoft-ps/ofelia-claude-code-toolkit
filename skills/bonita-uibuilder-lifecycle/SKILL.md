@@ -5,7 +5,7 @@ description: |
   validate → implement → test E2E → export → deploy → update docs → deliver.
   Covers pages, forms, widgets, datasources, custom Angular/TS widgets.
   Trigger: "uibuilder lifecycle", "create uibuilder app", "appsmith page", "ui builder lifecycle"
-allowed-tools: Read, Grep, Glob, Edit, Write, Bash, mcp__claude_ai_Atlassian_2__createConfluencePage, mcp__claude_ai_Atlassian_2__updateConfluencePage, mcp__Bonita-AI-Agent__build_pdf, mcp__Bonita-AI-Agent__generate_uibuilder_page, mcp__Bonita-AI-Agent__generate_uibuilder_form, mcp__Bonita-AI-Agent__validate_uibuilder_page, mcp__Bonita-AI-Agent__generate_uibuilder_widget
+allowed-tools: Read, Grep, Glob, Edit, Write, Bash, mcp__claude_ai_Atlassian_2__createConfluencePage, mcp__claude_ai_Atlassian_2__updateConfluencePage, mcp__Ofelia-AI-Agent__build_pdf, mcp__Ofelia-AI-Agent__generate_uibuilder_page, mcp__Ofelia-AI-Agent__generate_uibuilder_form, mcp__Ofelia-AI-Agent__validate_uibuilder_page, mcp__Ofelia-AI-Agent__generate_uibuilder_widget
 user_invocable: true
 ---
 

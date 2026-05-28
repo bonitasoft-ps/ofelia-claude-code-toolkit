@@ -5,7 +5,7 @@ description: |
   validate → implement → test (unit/property/mutation/integration) → build → deploy → update docs → deliver.
   Use when creating, updating, or deploying a standalone Java library (JAR) used by Bonita projects.
   Trigger: "create library", "java library", "shared library", "utility jar", "library lifecycle"
-allowed-tools: Read, Grep, Glob, Edit, Write, Bash, mcp__claude_ai_Atlassian_2__createConfluencePage, mcp__claude_ai_Atlassian_2__updateConfluencePage, mcp__Bonita-AI-Agent__build_pdf
+allowed-tools: Read, Grep, Glob, Edit, Write, Bash, mcp__claude_ai_Atlassian_2__createConfluencePage, mcp__claude_ai_Atlassian_2__updateConfluencePage, mcp__Ofelia-AI-Agent__build_pdf
 user_invocable: true
 ---
 

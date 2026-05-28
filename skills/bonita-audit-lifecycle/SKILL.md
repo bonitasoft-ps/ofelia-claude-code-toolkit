@@ -5,7 +5,7 @@ description: |
   validate → execute audit → analyze → document results → deliver PDF report.
   Uses 318 audit rules across 9 categories.
   Trigger: "run audit", "code audit", "audit lifecycle", "quality audit", "bonita audit"
-allowed-tools: Read, Grep, Glob, Edit, Write, Bash, mcp__claude_ai_Atlassian_2__createConfluencePage, mcp__claude_ai_Atlassian_2__updateConfluencePage, mcp__Bonita-AI-Agent__build_pdf, mcp__Bonita-AI-Agent__run_full_audit, mcp__Bonita-AI-Agent__get_audit_standards, mcp__Bonita-AI-Agent__get_audit_report_template, mcp__Bonita-AI-Agent__search_audit_rules
+allowed-tools: Read, Grep, Glob, Edit, Write, Bash, mcp__claude_ai_Atlassian_2__createConfluencePage, mcp__claude_ai_Atlassian_2__updateConfluencePage, mcp__Ofelia-AI-Agent__build_pdf, mcp__Ofelia-AI-Agent__run_full_audit, mcp__Ofelia-AI-Agent__get_audit_standards, mcp__Ofelia-AI-Agent__get_audit_report_template, mcp__Ofelia-AI-Agent__search_audit_rules
 user_invocable: true
 ---
 

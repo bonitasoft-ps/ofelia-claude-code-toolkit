@@ -5,7 +5,7 @@ description: |
   validate → implement → test → build → deploy as .bar → update docs → deliver.
   Use for custom code that extends Bonita runtime functionality within a project.
   Trigger: "project extension", "bonita extension", "custom extension", "extension lifecycle"
-allowed-tools: Read, Grep, Glob, Edit, Write, Bash, mcp__claude_ai_Atlassian_2__createConfluencePage, mcp__claude_ai_Atlassian_2__updateConfluencePage, mcp__Bonita-AI-Agent__build_pdf
+allowed-tools: Read, Grep, Glob, Edit, Write, Bash, mcp__claude_ai_Atlassian_2__createConfluencePage, mcp__claude_ai_Atlassian_2__updateConfluencePage, mcp__Ofelia-AI-Agent__build_pdf
 user_invocable: true
 ---
 
