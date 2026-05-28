@@ -152,7 +152,43 @@ Each line is a **separate message**. Pasting them all at once makes Claude Code 
 /plugin
 ```
 
-Tab to **Installed** — `bonita-ai-agent@bonitasoft-ps` should appear with all its skills, agents and the MCP server.
+Tab to **Installed** — `bonita-ai-agent@bonitasoft-ps` should appear with all its skills, agents and the MCP server. Tab to **Errors** to see any loading issue (if everything is fine, that tab is empty).
+
+You can also confirm from the shell:
+
+```bash
+claude plugin list
+```
+
+This prints every installed plugin with its marketplace and version.
+
+### After install — quick start
+
+**Skills auto-invoke.** Once the plugin is loaded, the 60+ Bonita expert skills become available with the namespace prefix `bonita-ai-agent:` (for example `bonita-ai-agent:bonita-audit-expert`, `bonita-ai-agent:bonita-bdm-expert`). You don't have to call them by name — Claude picks the right one when it detects a relevant task. Just describe what you want:
+
+> *"Audit this Bonita project against the PS audit rules"*
+> *"Plan an upgrade from Bonita 7.5.2 to 2026.1"*
+> *"Generate a connector spec for a Salesforce REST API"*
+
+To force a specific skill, prefix the slash command with the namespace:
+
+```
+/bonita-ai-agent:bonita-audit-expert
+```
+
+**Agents are also namespaced.** To delegate to a sub-agent:
+
+```
+delegate to bonita-ai-agent:bonita-code-reviewer: review this controller
+```
+
+**List everything the plugin provides** at any time:
+
+```
+/help
+```
+
+Skills, agents and commands from the plugin appear under the `bonita-ai-agent` heading.
 
 ### Update the plugin
 
