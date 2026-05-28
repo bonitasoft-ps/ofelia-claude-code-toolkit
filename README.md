@@ -51,9 +51,9 @@ This repository is the **single source of truth** for Bonitasoft's AI-assisted d
 
 | What | Purpose | How many |
 |------|---------|----------|
-| **Skills** | Expert knowledge with progressive disclosure (BDM, REST API, UIB, Audit, Testing...) | 44 |
+| **Skills** | Expert knowledge with progressive disclosure (BDM, REST API, UIB, Audit, Testing...) | 55 |
 | **Agents** | Isolated subagents for delegated tasks (code review, test generation, audit, docs) | 5 |
-| **Commands** | Slash commands for common tasks (`/run-tests`, `/generate-tests`) | 19 |
+| **Commands** | Slash commands for common tasks (`/run-tests`, `/generate-tests`) | 18 |
 | **Hooks** | Automatic checks that fire without user action (format, style, compile, git workflow) | 15 |
 | **Configs** | Standard rule files (Checkstyle, PMD, EditorConfig) | 3 |
 | **Templates** | Ready-to-use settings, CLAUDE.md starter, GitHub Actions | 4 |
@@ -177,7 +177,7 @@ This prints every installed plugin with its marketplace and version.
 
 ### After install — quick start
 
-**Skills auto-invoke.** Once the plugin is loaded, the 60+ Bonita expert skills become available with the namespace prefix `bonita-ai-agent:` (for example `bonita-ai-agent:bonita-audit-expert`, `bonita-ai-agent:bonita-bdm-expert`). You don't have to call them by name — Claude picks the right one when it detects a relevant task. Just describe what you want:
+**Skills auto-invoke.** Once the plugin is loaded, the 55 Bonita expert skills become available with the namespace prefix `bonita-ai-agent:` (for example `bonita-ai-agent:bonita-audit-expert`, `bonita-ai-agent:bonita-bdm-expert`). You don't have to call them by name — Claude picks the right one when it detects a relevant task. Just describe what you want:
 
 > *"Audit this Bonita project against the PS audit rules"*
 > *"Plan an upgrade from Bonita 7.5.2 to 2026.1"*
@@ -361,11 +361,8 @@ These resources enforce **organization-wide standards**. We recommend deploying 
 
 | Skill | Auto-invokes when... | What it enforces |
 |-------|---------------------|-----------------|
-| `bonita-bdm-expert` | BDM, queries, JPQL, data model | countFor, naming (`PB` prefix), indexes, descriptions |
 | `bonita-rest-api-expert` | REST API extensions, controllers | Abstract/Concrete pattern, README, DTOs, OpenAPI |
-| `bonita-document-expert` | PDF, HTML, Word/Excel, branding | BrandingConfig, corporate CSS, logo, OpenPDF/Thymeleaf/POI |
-| `bonita-groovy-expert` | Groovy scripts in Bonita processes | API accessor, DAO, script extraction from .proc |
-| `bonita-process-expert` | Process modeling, .proc files | 3-level tiering, contracts, connectors, subprocess reuse |
+| `branded-documents-redirect` | PDF, HTML, Word/Excel, branding | Points at the ofelia-document-toolkit plugin (canonical source for Ofelia branding) |
 | `bonita-uib-expert` | UI Builder, Appsmith pages, widgets | Naming, async/await, JS Objects, bonita-api-plugin |
 | `bonita-coding-standards` | Code quality, Java 17, clean code | SRP, method length, Javadoc, Checkstyle, PMD |
 | `bonita-audit-expert` | Code audits, quality reports | Backend + UIB audit templates, automated checks |
@@ -443,7 +440,6 @@ These resources **depend on the project type**. Install them in `.claude/` withi
 | `/check-existing-extensions` | Search extensions for similar functionality | `/check-existing-extensions cancel process` |
 | `/check-existing-processes` | Search processes for similar logic | `/check-existing-processes notification` |
 | `/generate-readme` | Generate README.md for a REST API controller | `/generate-readme CancelController` |
-| `/generate-document` | Scaffold corporate document service (PDF/HTML/DOCX/XLSX) | `/generate-document PDF InvoiceReport` |
 
 #### Project Hooks
 
@@ -815,8 +811,7 @@ claude-code-toolkit/
 │   │   ├── validate-bdm.md
 │   │   ├── check-existing-extensions.md
 │   │   ├── check-existing-processes.md
-│   │   ├── generate-readme.md
-│   │   └── generate-document.md
+│   │   └── generate-readme.md
 │   ├── quality/                       # ★★☆ Personal — quality tools
 │   │   ├── audit-compliance.md
 │   │   ├── check-code-quality.md
@@ -843,25 +838,13 @@ claude-code-toolkit/
 │       ├── check-method-usages.sh     # ★☆☆ Project — multi-module only
 │       └── check-test-pair.sh         # ★☆☆ Project — libraries only
 ├── skills/
-│   ├── bonita-bdm-expert/             # ★★★ Enterprise — BDM & data model
-│   │   ├── SKILL.md
-│   │   ├── references/                # datamodel-rules, query-patterns, access-control
-│   │   └── scripts/validate-bdm.sh
 │   ├── bonita-rest-api-expert/        # ★★★ Enterprise — REST API patterns
 │   │   ├── SKILL.md
 │   │   ├── references/                # controller-checklist, dto-patterns, readme-template, openapi
 │   │   ├── scripts/check-controller.sh
 │   │   └── assets/controller-readme-template.md
-│   ├── bonita-document-expert/        # ★★★ Enterprise — corporate document generation
-│   │   ├── SKILL.md
-│   │   ├── references/                # pdf-generation, office-generation, thymeleaf, maven-deps
-│   │   └── assets/                    # BrandingConfig.java, corporate.css, bonitasoft-logo.svg
-│   ├── bonita-groovy-expert/          # ★★★ Enterprise — Groovy scripts in Bonita
-│   │   ├── SKILL.md
-│   │   └── references/               # bonita-api-patterns, proc-script-extraction, common-patterns
-│   ├── bonita-process-expert/         # ★★★ Enterprise — process modeling
-│   │   ├── SKILL.md
-│   │   └── references/               # bpm-standards, process-tiering, contracts, connector-errors
+│   ├── branded-documents-redirect/    # ★★★ Enterprise — redirect to ofelia-document-toolkit
+│   │   └── SKILL.md
 │   ├── bonita-uib-expert/            # ★★★ Enterprise — UI Builder (Appsmith)
 │   │   ├── SKILL.md
 │   │   ├── references/               # widgets, api-actions, js-patterns, header, charts, naming, xml, troubleshooting
