@@ -5,7 +5,7 @@ description: |
   validate with client → execute upgrade → test → update docs → deliver PDF report.
   Use when upgrading Bonita versions, migrating databases, updating Tomcat.
   Trigger: "upgrade bonita", "migrate version", "update platform", "upgrade lifecycle", "version upgrade"
-allowed-tools: Read, Grep, Glob, Edit, Write, Bash, mcp__claude_ai_Atlassian_2__createConfluencePage, mcp__claude_ai_Atlassian_2__updateConfluencePage, mcp__Bonita-AI-Agent__build_pdf, mcp__Bonita-AI-Agent__get_upgrade_workflow, mcp__Bonita-AI-Agent__validate_plan, mcp__Bonita-AI-Agent__get_version_boundaries, mcp__Bonita-AI-Agent__run_pre_upgrade_audit, mcp__Bonita-AI-Agent__compare_versions
+allowed-tools: Read, Grep, Glob, Edit, Write, Bash, mcp__claude_ai_Atlassian_2__createConfluencePage, mcp__claude_ai_Atlassian_2__updateConfluencePage, mcp__Ofelia-AI-Agent__build_pdf, mcp__Ofelia-AI-Agent__get_upgrade_workflow, mcp__Ofelia-AI-Agent__validate_plan, mcp__Ofelia-AI-Agent__get_version_boundaries, mcp__Ofelia-AI-Agent__run_pre_upgrade_audit, mcp__Ofelia-AI-Agent__compare_versions
 user_invocable: true
 ---
 

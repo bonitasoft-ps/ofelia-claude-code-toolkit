@@ -5,7 +5,7 @@ description: |
   spec → document → publish/save → validate → implement → test → build → deploy → update docs → deliver.
   Covers the full VALIDATE → CONNECT → EXECUTE → DISCONNECT pattern.
   Trigger: "create connector", "new connector", "actor filter", "event handler", "connector lifecycle"
-allowed-tools: Read, Grep, Glob, Edit, Write, Bash, mcp__claude_ai_Atlassian_2__createConfluencePage, mcp__claude_ai_Atlassian_2__updateConfluencePage, mcp__Bonita-AI-Agent__build_pdf, mcp__Bonita-AI-Agent__create_connector_spec, mcp__Bonita-AI-Agent__get_connector_template, mcp__Bonita-AI-Agent__match_existing_connector
+allowed-tools: Read, Grep, Glob, Edit, Write, Bash, mcp__claude_ai_Atlassian_2__createConfluencePage, mcp__claude_ai_Atlassian_2__updateConfluencePage, mcp__Ofelia-AI-Agent__build_pdf, mcp__Ofelia-AI-Agent__create_connector_spec, mcp__Ofelia-AI-Agent__get_connector_template, mcp__Ofelia-AI-Agent__match_existing_connector
 user_invocable: true
 ---
 
