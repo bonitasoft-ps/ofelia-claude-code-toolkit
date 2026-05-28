@@ -86,14 +86,15 @@ bash install.sh
 
 This repository also distributes **`bonita-ai-agent`**, a Claude Code plugin that bundles the Bonita expert skills, agents and slash commands listed above. If you just want the AI assistance — without the methodology files, hooks templates, configs and project scaffolds — install the plugin. No clone, no scripts.
 
-> **Where to run the commands below:** inside the **Claude Code prompt** (the chat with Claude), not in your terminal. The same `/plugin` commands work on every Claude Code surface:
+> **Where to run the commands below:** inside the **Claude Code prompt** (the chat with Claude), not in your terminal. The `/plugin` slash commands work on every Claude Code surface that runs locally:
 >
-> - **CLI** (`claude` in your terminal)
-> - **Desktop app** (Mac / Windows)
-> - **IDE extensions** (VS Code, JetBrains)
-> - **claude.ai/code** (web) when paired with a local Claude Code install
+> - **CLI** (`claude` in your terminal) — full support, all three install options work
+> - **Desktop app** (Mac / Windows) — full support, but you also need to confirm the plugin from the UI after editing `settings.json` (see Option A below)
+> - **IDE extensions** (VS Code, JetBrains) — full support
 >
-> All four share the same `~/.claude/` config on your machine, so you install once and it's available everywhere.
+> All three share the same `~/.claude/` config on your machine, so installing once makes the plugin available everywhere.
+>
+> **What about `claude.ai` (the web app)?** As of 2026-05, **plugin installation is blocked at the organization level** for the `bonitasoft.com` workspace — `Customize → Connect tools you use → Plugins` lists the plugins but the install button is disabled. Use the CLI, Desktop or IDE for now. If/when admins lift the restriction, the same `/plugin` flow described below will work in `claude.ai` too.
 
 ### Three install options
 
@@ -118,7 +119,19 @@ Add the following to `~/.claude/settings.json` (Windows: `%USERPROFILE%\.claude\
 }
 ```
 
-Restart Claude Code and accept the **Trust marketplace** prompt that appears. The plugin installs automatically; `"autoUpdate": true` keeps it on the latest commit from `master`.
+Restart Claude Code and accept the **Trust marketplace** prompt that appears. `"autoUpdate": true` keeps the plugin on the latest commit from `master`.
+
+**On the CLI:** that's all — the plugin is installed and ready.
+
+**On the Desktop app (Mac / Windows), one extra UI step:**
+
+1. Open **Customize** (top-right or main menu).
+2. Scroll to the **Custom Plugins** section.
+3. Click the **`+`** button and add the plugin (it appears automatically because the marketplace is already registered via `settings.json`).
+
+Alternatively from the same Customize panel: **Explorar → plugins → Buscar en código** (search by name), open the plugin card and click **Más / More** → Install.
+
+After this UI confirmation the Desktop app loads the plugin like the CLI does.
 
 #### Option B — Interactive UI
 
