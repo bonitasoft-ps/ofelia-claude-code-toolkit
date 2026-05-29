@@ -1,5 +1,7 @@
 # Claude Code Toolkit — Bonitasoft Development Methodology
 
+> **New to the Ofelia / Bonitasoft PS ecosystem?** Start with the [Ofelia PS Handbook](https://github.com/bonitasoft-ps/ofelia-ps-handbook) — it maps the four repos (this one plus `ofelia-ai-agent-mcp`, `ofelia-document-toolkit`, `ps-consultant-plugin`), explains how they call each other, and walks you through the onboarding checklist.
+
 > A catalog of **skills**, **commands**, **hooks**, and **configurations** for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) that defines how Bonitasoft builds software with AI.
 
 **Clone this repository. Pick what you need. Install at the right scope. Code better.**
