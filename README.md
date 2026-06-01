@@ -7,7 +7,7 @@
 **Clone this repository. Pick what you need. Install at the right scope. Code better.**
 
 ```
-git clone https://github.com/bonitasoft-ps/claude-code-toolkit.git
+git clone https://github.com/bonitasoft-ps/ofelia-claude-code-toolkit.git
 ```
 
 ---
@@ -112,7 +112,7 @@ Add the following to `~/.claude/settings.json` (Windows: `%USERPROFILE%\.claude\
     "ofelia-claude-code-toolkit": {
       "source": {
         "source": "git",
-        "url": "https://github.com/bonitasoft-ps/claude-code-toolkit.git"
+        "url": "https://github.com/bonitasoft-ps/ofelia-claude-code-toolkit.git"
       },
       "autoUpdate": true
     }
@@ -139,12 +139,12 @@ After this UI confirmation the Desktop app loads the plugin like the CLI does.
 
 #### Option B — Interactive UI
 
-In any Claude Code session, type `/plugin`. Tab to **Marketplaces** → **Add new marketplace** → paste `https://github.com/bonitasoft-ps/claude-code-toolkit.git` → accept trust prompt. Then tab to **Discover** → select `ofelia-claude-code-toolkit` → press Enter → Install.
+In any Claude Code session, type `/plugin`. Tab to **Marketplaces** → **Add new marketplace** → paste `https://github.com/bonitasoft-ps/ofelia-claude-code-toolkit.git` → accept trust prompt. Then tab to **Discover** → select `ofelia-claude-code-toolkit` → press Enter → Install.
 
 #### Option C — Slash commands (one at a time)
 
 ```
-/plugin marketplace add https://github.com/bonitasoft-ps/claude-code-toolkit.git
+/plugin marketplace add https://github.com/bonitasoft-ps/ofelia-claude-code-toolkit.git
 ```
 
 Wait for "Marketplace added", then:
@@ -161,7 +161,7 @@ Wait, then:
 
 Each line is a **separate message**. Pasting them all at once makes Claude Code treat the concatenation as one argument and fail.
 
-> **Use the full HTTPS URL ending in `.git`** — the shorthand `bonitasoft-ps/claude-code-toolkit` defaults to an SSH clone (`git@github.com:...`) which fails on most machines because there is no SSH key configured for GitHub. HTTPS uses the credential helper set up by `gh auth setup-git`.
+> **Use the full HTTPS URL ending in `.git`** — the shorthand `bonitasoft-ps/ofelia-claude-code-toolkit` defaults to an SSH clone (`git@github.com:...`) which fails on most machines because there is no SSH key configured for GitHub. HTTPS uses the credential helper set up by `gh auth setup-git`.
 
 ### Verify the install
 
@@ -230,7 +230,7 @@ To pin to a specific branch or tag, set a `ref` on the marketplace source in `se
 ```json
 "source": {
   "source": "git",
-  "url": "https://github.com/bonitasoft-ps/claude-code-toolkit.git",
+  "url": "https://github.com/bonitasoft-ps/ofelia-claude-code-toolkit.git",
   "ref": "v1.2.0"
 }
 ```
