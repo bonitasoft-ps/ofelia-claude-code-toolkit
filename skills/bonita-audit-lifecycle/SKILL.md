@@ -90,3 +90,25 @@ Update the audit plan document with:
 | Report template | get_audit_report_template | Report structure |
 | Search rules | search_audit_rules | Specific rule details |
 | PDF | build_pdf | Corporate report |
+
+## Document templates produced by this lifecycle
+
+This skill produces **two branded deliverables**, both rendered by the
+[`ofelia-document-toolkit`](https://github.com/bonitasoft-ps/ofelia-document-toolkit)
+plugin (must be installed alongside this one):
+
+| Phase | Template (apartados) | Spec to feed `generate_docx` |
+|---|---|---|
+| Phase 2 (Plan Document) | [`audit-plan/README.md`](https://github.com/bonitasoft-ps/ofelia-document-toolkit/blob/main/templates/document-types/audit-plan/README.md) | [`audit-plan/example.docx.json`](https://github.com/bonitasoft-ps/ofelia-document-toolkit/blob/main/templates/document-types/audit-plan/example.docx.json) |
+| Phase 7 (Document Results) | [`audit-report/README.md`](https://github.com/bonitasoft-ps/ofelia-document-toolkit/blob/main/templates/document-types/audit-report/README.md) | [`audit-report/example.docx.json`](https://github.com/bonitasoft-ps/ofelia-document-toolkit/blob/main/templates/document-types/audit-report/example.docx.json) |
+
+**Workflow on Phase 8 (Deliver)**: use `mcp__plugin_ofelia-document-toolkit_ofelia-document__generate_docx` with the
+`audit-report` spec instead of the deprecated `build_pdf` MCP tool. The
+ofelia-document-toolkit gives the canonical Ofelia / Bonita BPM
+branding (palette, logo, fonts in one place); `build_pdf` only remains
+for backwards compat.
+
+Real reference deliverables on Drive (linked from each template's README):
+
+- `G:\Mi unidad\Customers\BBVA Colombia\Propuesta Auditoría General\Audit_Plan v.2.0 - ES.docx` (audit-plan example)
+- `G:\Mi unidad\Customers\Anahuac\20231127-20231219 Auditoría de Código\2023_12_Audit_Anahuac_v.1.0.pdf` (audit-report canonical)
