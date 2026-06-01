@@ -183,3 +183,25 @@ This document may end up in shared toolkits, memory, or `propose_learning`. **Al
 ## When the MCP server is unavailable
 
 The elicitation itself does not need MCP — it is pure dialogue. The handoff step (running `validate_plan`, `run_full_audit`, etc.) may be delayed; flag this to the user but proceed with the elicitation regardless.
+
+## Document templates produced by this lifecycle
+
+This elicitation feeds two branded deliverables rendered by the
+[`ofelia-document-toolkit`](https://github.com/bonitasoft-ps/ofelia-document-toolkit)
+plugin:
+
+| Stage | Template (apartados) | Spec |
+|---|---|---|
+| Sent **to** customer when info is partial | [`estimation-checklist/README.md`](https://github.com/bonitasoft-ps/ofelia-document-toolkit/blob/main/templates/document-types/estimation-checklist/README.md) | [`estimation-checklist/example.docx.json`](https://github.com/bonitasoft-ps/ofelia-document-toolkit/blob/main/templates/document-types/estimation-checklist/example.docx.json) |
+| Produced **from** the elicitation answers | [`sizing-document/README.md`](https://github.com/bonitasoft-ps/ofelia-document-toolkit/blob/main/templates/document-types/sizing-document/README.md) | [`sizing-document/example.docx.json`](https://github.com/bonitasoft-ps/ofelia-document-toolkit/blob/main/templates/document-types/sizing-document/example.docx.json) |
+
+The estimation-checklist has 6 question sections (Información General /
+Infraestructura / Desarrollo / UI Builder / Procesos / Requisitos
+Adicionales) that map 1-to-1 onto the sizing-document body sections —
+when the customer returns the checklist filled in, transcribe the
+answers into the sizing template's `2.x` subsections directly.
+
+Reference deliverables on Drive:
+
+- `G:\Mi unidad\Partners\Qintess\Checklist de Información para Estimación de Proyectos Bonita v0.0.1.docx` (estimation-checklist canonical)
+- `G:\Mi unidad\Prospects\CTAIMA\CTAIMA - Consultancy Sizing (POC) v1.0.0.docx` (sizing-document canonical)

@@ -86,3 +86,26 @@ Corporate PDF report, status DELIVERED.
 - 2021.x → 2024.x: Check each intermediate release
 - Never skip major version boundaries
 - Always check `get_version_boundaries` first
+
+## Document templates produced by this lifecycle
+
+This skill produces **three branded deliverables**, all rendered by the
+[`ofelia-document-toolkit`](https://github.com/bonitasoft-ps/ofelia-document-toolkit)
+plugin (must be installed alongside this one):
+
+| Phase | Template (apartados) | Spec to feed `generate_docx` |
+|---|---|---|
+| Phase 1 pre-audit (optional) | [`audit-report/README.md`](https://github.com/bonitasoft-ps/ofelia-document-toolkit/blob/main/templates/document-types/audit-report/README.md) | [`audit-report/example.docx.json`](https://github.com/bonitasoft-ps/ofelia-document-toolkit/blob/main/templates/document-types/audit-report/example.docx.json) |
+| Phase 2 (Plan Document) | [`upgrade-plan/README.md`](https://github.com/bonitasoft-ps/ofelia-document-toolkit/blob/main/templates/document-types/upgrade-plan/README.md) | [`upgrade-plan/example.docx.json`](https://github.com/bonitasoft-ps/ofelia-document-toolkit/blob/main/templates/document-types/upgrade-plan/example.docx.json) |
+| Phase 6 (Execute — operational runbooks) | [`migration-playbook/README.md`](https://github.com/bonitasoft-ps/ofelia-document-toolkit/blob/main/templates/document-types/migration-playbook/README.md) | [`migration-playbook/example.md`](https://github.com/bonitasoft-ps/ofelia-document-toolkit/blob/main/templates/document-types/migration-playbook/example.md) (Markdown — render with `generate_pdf_from_markdown`) |
+
+**Workflow on Phase 9 (Deliver)**: use `mcp__plugin_ofelia-document-toolkit_ofelia-document__generate_docx` with the
+`upgrade-plan` spec. For the operational runbooks created in Phase 6
+(one per intermediate version × per environment, e.g.
+`PRO-01-Preparacion-Bundle-Tomcat-7.10.6`), use
+`generate_pdf_from_markdown`.
+
+Real reference deliverables on Drive (linked from each template's README):
+
+- `G:\Mi unidad\Customers\Banco Hipotecario\Actualización 2024.3\Plan_Actualización_2024.3 v1.0.pdf` (upgrade-plan canonical)
+- `G:\Mi unidad\Partners\Altia\Consultoría Upgrade 7.2.4 to 2025.2\Consultoría\Documentación\PRO\PRO-01-Preparacion-Bundle-Tomcat-7.10.6.md` (migration-playbook canonical)

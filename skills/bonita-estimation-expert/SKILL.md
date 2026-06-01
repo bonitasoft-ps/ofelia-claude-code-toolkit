@@ -248,3 +248,19 @@ When presenting estimates to customers:
 - **For detailed scope definition workshop template**, read `references/scope-workshop.md`
 - **For estimation history and actuals (calibration data)**, read `references/estimation-actuals.md`
 - **For proposal document template**, read `references/proposal-template.md`
+
+## Document templates produced by this skill
+
+The numbers this skill produces land in two branded deliverables
+rendered by the [`ofelia-document-toolkit`](https://github.com/bonitasoft-ps/ofelia-document-toolkit) plugin:
+
+| Use case | Template (apartados) | Spec |
+|---|---|---|
+| Standalone sizing (no commercial terms yet) | [`sizing-document/README.md`](https://github.com/bonitasoft-ps/ofelia-document-toolkit/blob/main/templates/document-types/sizing-document/README.md) | [`sizing-document/example.docx.json`](https://github.com/bonitasoft-ps/ofelia-document-toolkit/blob/main/templates/document-types/sizing-document/example.docx.json) |
+| Full commercial proposal (sizing + pricing + contract) | [`proposal/README.md`](https://github.com/bonitasoft-ps/ofelia-document-toolkit/blob/main/templates/document-types/proposal/README.md) | [`proposal/example-direct.docx.json`](https://github.com/bonitasoft-ps/ofelia-document-toolkit/blob/main/templates/document-types/proposal/example-direct.docx.json) (Spanish full) or [`example-b2b.docx.json`](https://github.com/bonitasoft-ps/ofelia-document-toolkit/blob/main/templates/document-types/proposal/example-b2b.docx.json) (English partner) |
+
+The sizing-document is the **default output** of an estimation pass.
+Upgrade to a `proposal` only when the customer has accepted the
+sizing and you need to add commercial terms (pricing, validity,
+payment, IP, signature workflow). Pricing for the proposal requires
+PS Manager approval before sending.
