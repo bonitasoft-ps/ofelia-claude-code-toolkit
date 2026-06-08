@@ -1,0 +1,27 @@
+{
+  "Stop": [
+    {
+      "hooks": [
+        {
+          "type": "command",
+          "async": true,
+          "timeout": 60,
+          "statusMessage": "Checkpoint de sesion...",
+          "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/save-session.mjs\""
+        }
+      ]
+    }
+  ],
+  "SessionEnd": [
+    {
+      "hooks": [
+        {
+          "type": "command",
+          "timeout": 45,
+          "statusMessage": "Guardando resumen de sesion...",
+          "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/save-session.mjs\" --force"
+        }
+      ]
+    }
+  ]
+}
