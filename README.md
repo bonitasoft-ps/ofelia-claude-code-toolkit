@@ -1054,3 +1054,5 @@ bash setup-dev-env.sh --list
 ## License
 
 Internal use — Bonitasoft Professional Services
+
+<!-- notify pipeline check 27204144707 -->
