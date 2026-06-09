@@ -320,3 +320,5 @@ claude-code-toolkit/
 ### Plugins to Publish
 - `testing-expert` - JUnit 5 + Mockito + AssertJ + jqwik patterns (universal)
 - `skill-creator` - Meta-skill for creating Claude Code skills (universal)
+
+<!-- notify check2 -->
