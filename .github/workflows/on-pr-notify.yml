@@ -6,4 +6,4 @@ on:
 
 jobs:
   notify:
-    uses: bonitasoft-ps/bonita-ai-agent-mcp/.github/workflows/notify-pr.yml@main
+    uses: bonitasoft-ps/ofelia-ai-agent-mcp/.github/workflows/notify-pr.yml@main
