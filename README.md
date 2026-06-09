@@ -24,6 +24,7 @@ git clone https://github.com/bonitasoft-ps/ofelia-claude-code-toolkit.git
 ## Table of Contents
 
 - [Install as a Claude Code Plugin (ofelia-claude-code-toolkit)](#install-as-a-claude-code-plugin-ofelia-claude-code-toolkit)
+- [Session continuity — never lose context (/save-session)](#session-continuity--never-lose-context-save-session)
 - [What is this?](#what-is-this)
 - [The 3 Scopes + Priority System](#the-3-scopes--priority-system)
   - [Enterprise Scope](#-enterprise-scope--priority-1)
@@ -236,6 +237,65 @@ To pin to a specific branch or tag, set a `ref` on the marketplace source in `se
 ```
 
 Any branch, tag or commit SHA works as `ref`.
+
+---
+
+## Session continuity — never lose context (`/save-session`)
+
+The plugin keeps a living **`LAST_SESSION.md`** in your project root: a short, AI-generated summary of the current Claude Code session so you (or the next session) can pick up exactly where you left off. No setup needed — it ships with the plugin and is active as soon as it is installed.
+
+### What it does
+
+It writes/updates `LAST_SESSION.md` with a structured summary:
+
+```markdown
+# Last Session Context
+**Date**: 2026-06-08 17:42
+**Branch**: claude/feat/my-change
+**Summary**: One or two lines describing what this session was about.
+
+## Hecho            (what was done)
+## Decisiones       (decisions taken)
+## Pendiente        (next steps)
+## Ficheros         (files touched)
+```
+
+Read it at the start of your next session (open the file, or add a line to your `CLAUDE.md` telling Claude to read `LAST_SESSION.md` first) and you resume with full context.
+
+### When it runs
+
+| Trigger | Event | Behaviour |
+|---|---|---|
+| **Automatic, periodic** | `Stop` (end of each turn) | Throttled to **once every 30 min**. Almost every turn just checks a timestamp and exits — **near-zero tokens, runs in the background, never blocks or spams**. |
+| **Automatic, on exit** | `SessionEnd` | Forces a fresh, complete summary when you close the session. |
+| **Manual (like Ctrl+S)** | command | `/save-session` — save right now. |
+| **Manual (short alias)** | command | `/save-s` — identical to `/save-session`, just shorter to type. |
+
+`/save-session` and `/save-s` are the **same command**; the alias exists only for speed. Use whichever you prefer:
+
+```
+/ofelia-claude-code-toolkit:save-session
+/ofelia-claude-code-toolkit:save-s
+```
+
+### Why it is cheap and quiet
+
+- The summary is generated with **Haiku** (the cheapest model), and only when the 30-min throttle allows or you force it. The vast majority of stops cost **0 tokens**.
+- The automatic `Stop` hook is `async`: it runs in the background, so it never blocks your turn or produces on-screen feedback.
+- A recursion guard (`CC_NO_SESSION_SUMMARY`) stops the helper from re-triggering the hooks.
+
+### Requirements
+
+- The `claude` CLI must be on your `PATH` (it is, if you run Claude Code).
+- **Node.js** (also required by Claude Code). The whole feature is a single cross-platform Node script (`scripts/save-session.mjs`), so it works the same on Windows, macOS and Linux — no PowerShell/bash variants to maintain.
+
+### Tuning / disabling
+
+- **Change the interval:** edit the `Stop` hook command in `hooks/hooks.json` and add `--throttle <minutes>` (e.g. `--throttle 15`).
+- **Manual-only:** remove the `Stop` and/or `SessionEnd` entries from `hooks/hooks.json` (or disable the plugin's hooks) and rely on `/save-session`.
+- **Apply changes in an already-open session:** run `/reload-plugins`, or just restart Claude Code. New sessions pick it up automatically.
+
+> `LAST_SESSION.md` is local context. Add it to your `.gitignore` if you don't want to commit it.
 
 ---
 
