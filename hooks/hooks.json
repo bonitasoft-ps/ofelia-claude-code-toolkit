@@ -1,4 +1,16 @@
 {
+  "SessionStart": [
+    {
+      "hooks": [
+        {
+          "type": "command",
+          "timeout": 10,
+          "statusMessage": "Detectando proyecto Bonita (SDD)...",
+          "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/detect-bonita.mjs\""
+        }
+      ]
+    }
+  ],
   "Stop": [
     {
       "hooks": [
