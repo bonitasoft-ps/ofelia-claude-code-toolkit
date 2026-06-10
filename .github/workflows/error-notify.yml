@@ -1,0 +1,44 @@
+# Crea un issue/email "🔴 ERROR ..." cuando el workflow CI falla, para que un
+# error real se distinga de un vistazo de las notificaciones rutinarias (🔔/📊).
+name: Error notifier
+
+on:
+  workflow_run:
+    workflows: ["CI"]
+    types: [completed]
+
+permissions:
+  issues: write
+
+jobs:
+  notify-error:
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const run = context.payload.workflow_run;
+            const repo = context.repo.repo;
+            const title = `🔴 ERROR · ${run.name} falló en ${repo} (${run.head_branch})`;
+            const { data: open } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo, labels: 'ci-error', state: 'open', per_page: 50,
+            });
+            if (open.some(i => i.title === title)) { console.log('issue ya existe, skip'); return; }
+            await github.rest.issues.create({
+              owner: context.repo.owner, repo, title,
+              body: [
+                '## 🔴 ERROR — el workflow ha fallado (esto NO es una notificación rutinaria)',
+                '',
+                '| | |','|---|---|',
+                `| **Workflow** | ${run.name} |`,
+                `| **Repo** | ${repo} |`,
+                `| **Rama** | \`${run.head_branch}\` |`,
+                `| **Commit** | ${run.head_sha.slice(0,7)} |`,
+                `| **Logs** | [ver run](${run.html_url}) |`,
+                '',
+                'Revisa los logs y corrige. Cierra este issue cuando esté resuelto.',
+              ].join('\n'),
+              labels: ['ci-error'],
+              assignees: ['endikafercu'],
+            });
