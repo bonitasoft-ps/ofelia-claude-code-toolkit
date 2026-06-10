@@ -23,4 +23,4 @@ jobs:
             echo "::warning::PS_GITHUB_TOKEN not configured. Skipping MCP notification."
             exit 0
           fi
-          gh api repos/bonitasoft-ps/ofelia-ai-agent-mcp/dispatches           -f event_type=toolkit-updated             -f "client_payload[toolkit]=claude-code-toolkit"             -f "client_payload[ref]=${{ github.ref_name }}"             -f "client_payload[sha]=${{ github.sha }}"
+          gh api repos/bonitasoft-ps/ofelia-ai-agent-mcp/dispatches           -f event_type=toolkit-updated             -f "client_payload[toolkit]=claude-code-toolkit"             -f "client_payload[ref]=${{ github.ref_name }}"             -f "client_payload[sha]=${{ github.sha }}" || echo "::warning::MCP dispatch failed (non-fatal)"
