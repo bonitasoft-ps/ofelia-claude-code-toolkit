@@ -12,3 +12,4 @@ Produce/refine `.sdd/spec.md` for the current Bonita artifact.
 4. Make acceptance criteria testable (each maps to a future test).
 5. Enforce `sdd-core-bonita.md` rules (audit fields, Groovy-vs-Java, lifecycle).
 6. Stop at the spec. Do not plan or implement here.
+7. **Learning loop.** If writing the spec exposes a gap in the template you used (a missing section, a rule the project needed that the template lacks), and the `propose_learning` MCP tool is available, propose it (category: `pattern`, anonymized) so `templates/sdd/*` improves for the next project.
