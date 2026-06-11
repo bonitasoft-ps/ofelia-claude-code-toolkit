@@ -1,3 +1,5 @@
+# TOKEN: secrets.PS_GITHUB_TOKEN — si caduca (401): ejecutar C:\PSProjects\configotate-pat.ps1
+# Doc: ofelia-ai-agent-mcp/docs/ops/pat-rotation-and-notifications.md
 # Notify MCP Server when this toolkit is updated.
 # Triggers sync-ecosystem.yml in ofelia-ai-agent-mcp to regenerate
 # claude-project/ knowledge and verify integration.
@@ -20,7 +22,7 @@ jobs:
           GH_TOKEN: ${{ secrets.PS_GITHUB_TOKEN }}
         run: |
           if [ -z "$GH_TOKEN" ]; then
-            echo "::warning::PS_GITHUB_TOKEN not configured. Skipping MCP notification."
+            echo "::warning::PS_GITHUB_TOKEN not configured or expired. Run rotate-pat.ps1 (see ofelia-ai-agent-mcp/docs/ops). Skipping."
             exit 0
           fi
-          gh api repos/bonitasoft-ps/ofelia-ai-agent-mcp/dispatches           -f event_type=toolkit-updated             -f "client_payload[toolkit]=claude-code-toolkit"             -f "client_payload[ref]=${{ github.ref_name }}"             -f "client_payload[sha]=${{ github.sha }}" || echo "::warning::MCP dispatch failed (non-fatal)"
+          gh api repos/bonitasoft-ps/ofelia-ai-agent-mcp/dispatches           -f event_type=toolkit-updated             -f "client_payload[toolkit]=claude-code-toolkit"             -f "client_payload[ref]=${{ github.ref_name }}"             -f "client_payload[sha]=${{ github.sha }}" || echo "::warning::MCP dispatch failed (non-fatal). If 401: PAT expired -> rotate-pat.ps1"
