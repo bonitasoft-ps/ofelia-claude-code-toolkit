@@ -57,6 +57,7 @@ if (pkg) {
   else if (/"@angular\/core"/.test(pkg)) frontFramework = "angular";
   else if (/"svelte"/.test(pkg)) frontFramework = "svelte";
   else if (/"@builder\.io\/qwik"/.test(pkg)) frontFramework = "qwik";
+  else if (/"solid-js"/.test(pkg)) frontFramework = "solid";
 }
 
 const isBonita = Object.values(markers).some(Boolean) || frontFramework;
@@ -76,7 +77,10 @@ if (markers.restApiExt) {
   template = `spec-front-${frontFramework}`;
 } else if (markers.studioProject || markers.process || markers.bdm) {
   subtype = "Bonita Studio project";
-  template = "sdd-core-bonita";
+  // Studio projects get the core contract; pure process/BDM repos their spec.
+  if (!markers.studioProject && markers.process && !markers.bdm) template = "spec-process";
+  else if (!markers.studioProject && markers.bdm && !markers.process) template = "spec-bdm";
+  else template = "sdd-core-bonita";
 }
 
 const detected = Object.entries(markers)
