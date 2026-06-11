@@ -1,3 +1,5 @@
+# TOKEN: secrets.PS_GITHUB_TOKEN — si caduca (401): ejecutar C:\PSProjects\configotate-pat.ps1
+# Doc: ofelia-ai-agent-mcp/docs/ops/pat-rotation-and-notifications.md
 # Notify subscribers when a PR is opened.
 #
 # Self-contained (no cross-repo reusable workflow): creates a notification Issue
@@ -30,7 +32,7 @@ jobs:
         run: |
           set +e
           if [ -z "$GH_TOKEN" ]; then
-            echo "::warning::PS_GITHUB_TOKEN not configured. Skipping PR notification."
+            echo "::warning::PS_GITHUB_TOKEN not configured or expired. Run rotate-pat.ps1 (see ofelia-ai-agent-mcp/docs/ops). Skipping."
             exit 0
           fi
 
@@ -47,11 +49,11 @@ jobs:
             gh issue create --repo bonitasoft-ps/ofelia-ai-agent-mcp \
               --title "🔔 NOTIFICACIÓN · PR ${PR_REPO}#${PR_NUM}: ${PR_TITLE}" \
               --body "$body" --label pr-notification --assignee "$assignees" \
-              || echo "::warning::PR notification could not be created (non-fatal)."
+              || echo "::warning::PR notification could not be created (non-fatal). If 401: PAT expired -> rotate-pat.ps1."
           else
             gh issue create --repo bonitasoft-ps/ofelia-ai-agent-mcp \
               --title "🔔 NOTIFICACIÓN · PR ${PR_REPO}#${PR_NUM}: ${PR_TITLE}" \
               --body "$body" --label pr-notification \
-              || echo "::warning::PR notification could not be created (non-fatal)."
+              || echo "::warning::PR notification could not be created (non-fatal). If 401: PAT expired -> rotate-pat.ps1."
           fi
           exit 0
