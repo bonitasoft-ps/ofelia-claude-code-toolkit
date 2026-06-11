@@ -80,6 +80,16 @@ test("page_properties_with_apiExtension_is_detected_as_rest_api_extension", () =
   assert.match(context, /spec-rest-api/);
 });
 
+test("package_json_with_solid_dependency_is_detected_as_solid_frontend", () => {
+  const { status, stdout } = runDetectIn((dir) => {
+    writeFileSync(join(dir, "package.json"), JSON.stringify({ dependencies: { "solid-js": "^1.8.0" } }));
+  });
+  assert.equal(status, 0);
+  const context = contextOf(stdout);
+  assert.match(context, /frontend \(solid\)/);
+  assert.match(context, /spec-front-solid/);
+});
+
 test("empty_directory_produces_no_context_and_exits_cleanly", () => {
   const { status, stdout } = runDetectIn((dir) => {
     // a non-Bonita file must not trigger detection either
