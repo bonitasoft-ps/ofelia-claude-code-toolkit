@@ -1,4 +1,4 @@
-# TOKEN: secrets.PS_GITHUB_TOKEN — si caduca (401): ejecutar C:\PSProjects\configotate-pat.ps1
+# TOKEN: secrets.PS_GITHUB_TOKEN - if expired (401): run C:/PSProjects/config/rotate-pat.ps1
 # Doc: ofelia-ai-agent-mcp/docs/ops/pat-rotation-and-notifications.md
 # Notify subscribers when a PR is opened.
 #
