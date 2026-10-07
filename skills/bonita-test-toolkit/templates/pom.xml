@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Integration tests for the Bonita processes of this project, run with Bonita Test Toolkit against a live
+  Bonita (default http://localhost:8080/bonita) and MailPit (default http://localhost:8025).
+  Standalone on purpose: it is not a module of the Studio project, so Studio builds are unaffected.
+
+  Run everything (switch SMTP to MailPit, test, restore SMTP, build dashboard): node scripts/run-tests.mjs
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.example.bonita</groupId>
+  <artifactId>process-tests</artifactId>
+  <version>0.0.1</version>
+
+  <properties>
+    <maven.compiler.release>17</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <bonita.url>http://localhost:8080/bonita</bonita.url>
+    <bonita.tech.user>install</bonita.tech.user>
+    <bonita.tech.password>install</bonita.tech.password>
+    <mailpit.url>http://localhost:8025</mailpit.url>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>bonitasoft-releases</id>
+      <url>https://bonitasoft.jfrog.io/artifactory/releases</url>
+    </repository>
+  </repositories>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.bonitasoft</groupId>
+      <artifactId>bonita-test-toolkit</artifactId>
+      <version>3.1.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>5.10.2</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>3.25.3</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.awaitility</groupId>
+      <artifactId>awaitility</artifactId>
+      <version>4.2.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.17.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>2.0.13</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <version>3.2.5</version>
+        <configuration>
+          <systemPropertyVariables>
+            <bonita.url>${bonita.url}</bonita.url>
+            <bonita.tech.user>${bonita.tech.user}</bonita.tech.user>
+            <bonita.tech.password>${bonita.tech.password}</bonita.tech.password>
+            <mailpit.url>${mailpit.url}</mailpit.url>
+          </systemPropertyVariables>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>integration-test</goal>
+              <goal>verify</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
