@@ -1,5 +1,5 @@
 ---
-name: BPMN visualization in Claude.ai: always generate 3 artifacts (bpmn + svg + html)
+name: bpmn-visualization-in-claudeai-always-generate-3-a
 description: "When a user requests BPMN process visualization inside Claude.ai Artifacts or as downloadable files, the correct output is always 3 complementary artifacts: (1) a .bpmn XML file for tool import, (2) a"
 allowed-tools: []
 user-invocable: true
