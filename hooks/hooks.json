@@ -1,52 +1,54 @@
 {
-  "SessionStart": [
-    {
-      "hooks": [
-        {
-          "type": "command",
-          "timeout": 10,
-          "statusMessage": "Detectando proyecto Bonita (SDD)...",
-          "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/detect-bonita.mjs\""
-        }
-      ]
-    }
-  ],
-  "PreToolUse": [
-    {
-      "matcher": "Bash",
-      "hooks": [
-        {
-          "type": "command",
-          "timeout": 15,
-          "statusMessage": "Quality gate (commit)...",
-          "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/quality-gate-commit.mjs\""
-        }
-      ]
-    }
-  ],
-  "Stop": [
-    {
-      "hooks": [
-        {
-          "type": "command",
-          "async": true,
-          "timeout": 60,
-          "statusMessage": "Checkpoint de sesion...",
-          "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/save-session.mjs\""
-        }
-      ]
-    }
-  ],
-  "SessionEnd": [
-    {
-      "hooks": [
-        {
-          "type": "command",
-          "timeout": 45,
-          "statusMessage": "Guardando resumen de sesion...",
-          "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/save-session.mjs\" --force"
-        }
-      ]
-    }
-  ]
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "timeout": 10,
+            "statusMessage": "Detectando proyecto Bonita (SDD)...",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/detect-bonita.mjs\""
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "timeout": 15,
+            "statusMessage": "Quality gate (commit)...",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/quality-gate-commit.mjs\""
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "async": true,
+            "timeout": 60,
+            "statusMessage": "Checkpoint de sesion...",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/save-session.mjs\""
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "timeout": 45,
+            "statusMessage": "Guardando resumen de sesion...",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/save-session.mjs\" --force"
+          }
+        ]
+      }
+    ]
+  }
 }
