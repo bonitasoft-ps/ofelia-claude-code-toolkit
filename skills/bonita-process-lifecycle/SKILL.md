@@ -30,6 +30,9 @@ Ask the user:
 - Connectors needed (which tasks, which external systems)
 - Timers: durations, cron expressions
 
+## Intent check (before Phase 2)
+Write the spec as an intent (see `project-spec-generator/references/intent-ice.md`): one-sentence goal, constraints that shape the design, and failure conditions (e.g. validate_proc errors, contract not matching the BDM, process fails to deploy) as binary checks. Phase 4 VALIDATE runs those checks; do not give them to the implementer as targets.
+
 ## Phase 2: DOCUMENT
 Generate process specification using template.
 Include: flow diagram (text), task details, gateway conditions, variable definitions, connector mapping.

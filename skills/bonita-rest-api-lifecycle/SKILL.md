@@ -25,6 +25,9 @@ Ask the user:
 - Data sources: BDM queries, process data, external APIs
 - Bonita version
 
+## Intent check (before Phase 2)
+Write the spec as an intent (see `project-spec-generator/references/intent-ice.md`): one-sentence goal, constraints that shape the design, and failure conditions (e.g. build fails, endpoint returns an unexpected status, OpenAPI contract changed without version bump) as binary checks. Phase 4 VALIDATE runs those checks; do not give them to the implementer as targets.
+
 ## Phase 2-4: DOCUMENT → PUBLISH → VALIDATE
 Generate API spec with endpoints, DTOs, security. Use `confluence-publish-workflow`.
 

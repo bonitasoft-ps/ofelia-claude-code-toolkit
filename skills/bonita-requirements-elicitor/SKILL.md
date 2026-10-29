@@ -120,6 +120,15 @@ Probing:
 
 → Next step: `generate_project_scaffold` + `generate_bdm` + `generate_bpmn`
 
+## Classifying answers: goal, constraint or failure condition
+
+Before saving, sort each answer (details in `project-spec-generator/references/intent-ice.md`):
+
+- **Goal**: one outcome, one sentence. If two different implementations could not both satisfy it, the client gave a solution: ask "what do you need that for?" until you reach the outcome.
+- **Constraint**: would knowing it change how it is built? Then it is a constraint (deadline window, version limit, no new dependency). Keep to 5 to 7.
+- **Failure condition**: a binary check that can be verified afterwards (tests pass, audit report has no blockers, contract unchanged). These go in their own list so the validation step can run them.
+- If the client names a tool or pattern, record it under Constraints only when it is genuinely imposed; otherwise it is Context.
+
 ## Output: the requirements doc
 
 Save the result to `docs/requirements/<engagement-slug>-requirements.md` (create the directory if missing). Structure:
@@ -140,7 +149,10 @@ Save the result to `docs/requirements/<engagement-slug>-requirements.md` (create
 - <each mandatory answer, one line>
 
 ## Constraints
-- <deadlines, windows, technical limits>
+- <qualities that shape the design: deadlines, windows, technical limits; 5 to 7 lines>
+
+## Failure conditions
+- <binary checks verifiable afterwards, one per line>
 
 ## Out of scope
 - <explicit non-goals — equally important>

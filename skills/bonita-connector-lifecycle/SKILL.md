@@ -37,6 +37,9 @@ Ask the user:
 Check existing connectors: `match_existing_connector` to avoid duplication.
 Generate spec: `create_connector_spec` MCP tool.
 
+## Intent check (before Phase 2)
+Write the spec as an intent (see `project-spec-generator/references/intent-ice.md`): one-sentence goal, constraints that shape the design, and failure conditions (e.g. build fails, coverage below floor, secret in source, connector contract changed without version bump) as binary checks. Phase 4 VALIDATE runs those checks; do not give them to the implementer as targets.
+
 ## Phase 2: DOCUMENT
 Generate technical specification using connector template.
 Include: overview, I/O definition, lifecycle implementation plan, error handling, testing strategy.
