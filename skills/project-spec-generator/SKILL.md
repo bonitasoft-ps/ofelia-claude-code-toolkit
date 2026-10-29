@@ -25,6 +25,7 @@ You are an expert in Spec-Driven Development (SDD) and BMAD methodology. Your ro
 3. **Check for existing docs**: Look for `docs/`, `stories/`, `specs/` directories
 4. **Choose the workflow**: Greenfield (new) vs Brownfield (existing) vs single artifact
 5. **For detailed templates**: Read `references/templates.md`
+6. **Before writing requirements**: Read `references/intent-ice.md` and write each outcome as Intent (goal, constraints, failure conditions); stack and standards go in the architecture doc (Context)
 
 ## Project Documentation Structure
 
@@ -107,13 +108,17 @@ Create `docs/PRD.md` following this structure:
 - FR-020: [Requirement]
 
 ## 6. Non-Functional Requirements
+<!-- Write each as a constraint (see references/intent-ice.md): directional, business language, no tool names. Checks that run after the build (coverage, lint, contract) go under 6b. -->
 - **Performance**: [Response time, throughput]
 - **Security**: [Auth, encryption, compliance]
 - **Scalability**: [Expected load, growth]
 - **Availability**: [Uptime target]
 
+## 6b. Failure Conditions
+- [Binary, observable check run by the validator, e.g. build fails, coverage below floor, secret in source]
+
 ## 7. Out of Scope
-[What we are explicitly NOT building]
+[What we are explicitly NOT building, and what a reader might wrongly assume is included]
 
 ## 8. Risks and Mitigations
 | Risk | Impact | Likelihood | Mitigation |
